@@ -4,7 +4,7 @@ PT-BR README: [:brazil:](README-pt-br.md)
 
 Hi there! This is my solution to: [QR code component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H). 
 
-Frontend Mentor is a plataform with a lot of challenges to help you improve your coding skills building realistic projects. 
+Frontend Mentor is a platform with a lot of challenges to help you improve your coding skills by building realistic projects. 
 
 ## Table of contents
 
@@ -24,7 +24,7 @@ Frontend Mentor is a plataform with a lot of challenges to help you improve your
 
 ## Overview
 
-It's a simple page of a card with a qr-code in it, similar page are used to an infinity of things, since redirect people to another pages to make payments reading the qr-code.
+It's a simple page of a card with a QR code in it, similar pages are used for an infinity of things; from redirecting people to other pages to making payments by reading the QR code.
 
 ### Screenshots
 
@@ -54,20 +54,19 @@ It's a simple page of a card with a qr-code in it, similar page are used to an i
 ### Decisions
 
 
-I took the desicion to use Mobile-first workflow, it was because I think this type of page applies better into mobile than desktop, I think it's look a little empty into the desktop version.
+I decided to use Mobile-first workflow, it was because I think this type of page applies better to mobile than desktop, I think it looks a little empty in the desktop version.
 
-I made some plans about how I would apply things and then I just needed to implement it, it made the code flow a lot faster than I tought.
+I made some plans about how I would apply things and then I just needed to implement them, it made the code flow a lot faster than I thought.
 
 <details>
 <summary>old versions</summary>
-I made this page using just what I already knew about CSS and HTML, based on that, you will see that I took the decision to use CSS position properties instead of CSS grid or flex layout, why that? Well, how it's just and element on the entire body of the site, I tought that it would fit well, a simple way to put things into place, and how it's just one element, I don't need to worry about breaking the layout.
+I made this page using just what I already knew about CSS and HTML, based on that, you will see that I decided to use CSS position properties instead of CSS grid or flex layout, why that? Well, how it's just an element on the entire body of the site, I thought that it would fit well, a simple way to put things into place, and how it's just one element, I don't need to worry about breaking the layout.
 
-About the responsible part of the page, well, I didn't needed to make any change into the layout to the desktop version, cause the position propertiers already do the job to put the things on place based on view size.
+About the responsible part of the page, well, I didn't need to make any changes to the layout of the desktop version, cause the position properties already do the job to put the things in place based on view size.
 </details>
 
 ### Updates after challenge
-
-After some recieve some suggestions from frontend mentor community, I decided change some off my initial decisions to make it more responsible and improve acessibility of my page.
+After I received some suggestions from the front-end mentor community, I decided to change some of my initial decisions to make it more responsible and improve the accessibility of my page.
 
 First of all, I made the mistake of skipping one header level, so now it's corrected.
 
@@ -83,67 +82,39 @@ First of all, I made the mistake of skipping one header level, so now it's corre
   <h1 class="card-title">Improve your front-end skills by building projects</h1>
   ```
 
-Then I added a tag _footer_ to wrap my atribution.
+Then I added a tag _footer_ to wrap my attribution, with it my project will become better organized in code and to screen readers.
 
 ```html
 <footer>
-    <div class="attribution">
-      <p>
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-        Coded by <a target="_blank" href="https://github.com/EvandeeMoS">EvandeeMoS</a>.
-      </p>
-    </div>
-  </footer>
+  <div class="attribution">
+    <p>
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a target="_blank" href="https://github.com/EvandeeMoS">EvandeeMoS</a>.
+    </p>
+  </div>
+</footer>
 ```
 
-On CSS my decision of use _css position_ to use the _css grid layout_, as it was the principal property to put my elements into place, it was the "biggest" change into the code.
+On CSS, I've changed my decision of use _css position_ to use the _css grid layout_, last time I was thinking that using position would be a faster way of making this simple page with just one element, but after the suggestions, the grid layout proved to be more efficient even to this simple page.
 
-So I put the _display: grid_ property into body, but it made my footer a little bigger than needed, making the main section smaller, after some search I found the _grid-template-rows_ property, it was exactly what I wanted.
+```css
+body {
+  min-height: 100vh;
 
-<details>
-  <summary>without <em>grid-template-rows</em></summary>
+  display: grid;
+  grid-template-rows: 100vh auto;
+  place-items: center;
 
-  ```css
-    body {
-    min-height: 100vh;
+  background-color: #d6e2f0;
+  font-family: 'Outfit', sans-serif;
 
-    display: grid;
-    place-items: center;
+  font-size: 1.5rem;
+}
+```
 
-    background-color: #d6e2f0;
-    font-family: 'Outfit', sans-serif;
+To finish it, I changed the units used in CSS to responsive ones, now it's responsive to the changes in browser base font-size changes. As you can see in these parts of the code for example:
 
-    font-size: 1.5rem;
-    }
-  ```
-
-  <img src="./screenshots/grid-bug.png" alt="size of footer bigger than necessary, while main section is smaller than expected">
-</details>
-
-<details>
-  <summary>with</summary>
-
-  ```css
-    body {
-      min-height: 100vh;
-
-      display: grid;
-      grid-template-rows: 1fr auto;
-      place-items: center;
-
-      background-color: #d6e2f0;
-      font-family: 'Outfit', sans-serif;
-
-      font-size: 1.5rem;
-    }
-  ```
-  
-  <img src="./screenshots/grid-correction.png" alt="size of footer and main content exact the same as the design ask">
-</details>
-
-To finish, I changed the units used in css to responsive ones, now it's responsive to change of base browser font-size changes. As you can see in these parts of code for example:
-
-- This is a tip that from a video, make the font-size base 10px instead of 16px so it's easier think of sizes.
+- This is a tip that from a video, make the font-size base 10px instead of 16px so it's easier to think of sizes.
   ```css
   html {
       font-size: 0.625rem;
@@ -172,5 +143,5 @@ To finish, I changed the units used in css to responsive ones, now it's responsi
 
 ## Acknowledgments
 
-Here some fellows of frontend mentor that helped with their suggestions into comments of my solution:
+Here are some fellows of frontend mentor that helped with their suggestions into comments on my solution:
 [@Hassiai](https://www.frontendmentor.io/profile/Hassiai), [@ecemgo](https://www.frontendmentor.io/profile/ecemgo) and [@sumanth-chandana](https://www.frontendmentor.io/profile/sumanth-chandana)
